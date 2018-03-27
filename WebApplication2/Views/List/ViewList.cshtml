@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "ViewList";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link type="text/css" rel="stylesheet" href="../../Content/Site.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+
+<style>
+    div.first {
+        opacity: 0.9;
+        filter: alpha(opaciti=90);
+        margin-top: 15px;
+    }
+</style>
+
+<div class="first">
+    <div class="jumbotron">
+        <table cellspacing="10" cellpadding="10">
+            <tr>
+                <td><p> Name </p></td>
+                <td><p> Description </p></td>
+                <td><p> Date </p></td>
+            </tr>
+        </table>
+
+        <table cellspacing="10" cellpadding="10">
+            @foreach (var b in ViewBag.Lists)
+            {
+                <tr>
+                    <td><p>@b.NameList</p></td>
+                    <td><p> @b.Description </p></td>
+                    <td><p>@b.Date</p></td>
+                    <td>
+                        <p>
+                            @using (Html.BeginForm("EditList", "List", FormMethod.Post))
+                            {
+
+                                <button name="action" value="Edit" class="form-control col-md-2">Edit</button>
+                                <button name="action" value="Delete" class="form-control col-md-2">Delete</button>
+                                <input type="hidden" name="Id" value="@b.Id" />
+
+                            }
+                        </p>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>
+
+

@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "UpdateList";
+}
+@model WebApplication2.Models.List
+ 
+<head>
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+</head>
+<div class="first">
+    <div class="jumbotron">
+        @using (Html.BeginForm("UpdateList", "List", FormMethod.Post))
+        {
+            <fieldset>
+                @Html.HiddenFor(m => m.Id)
+
+                @Html.HiddenFor(m => m.Name)
+
+                <p>
+                    @Html.LabelFor(m => m.NameList, "Name")
+                    <br />
+                    @Html.EditorFor(m => m.NameList, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                </p>
+                @Html.LabelFor(m => m.Description, "Description")
+                <br />
+                @Html.EditorFor(m => m.Description, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                <p>
+                    @Html.LabelFor(m => m.Date, "Date")
+                    <input type="date" id="Date" name="Date" class="form-control" value="@Model.Date" required />
+                </p>
+                <p><input type="submit" value="Edit" class="form-control" /></p>
+            </fieldset>
+        }
+    </div>
+</div>
+
