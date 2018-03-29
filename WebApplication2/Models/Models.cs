@@ -26,21 +26,5 @@ namespace WebApplication2.Models
         public string NameList { get; set; }
         public string Description { get; set; }
         public string Date { get; set; }
-
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Дата рождения")]
-        public DateTime BirthDate { get; set; }
-
     }
-
-    public class AdminModel
-    {
-        // public int id { get; set; }
-    }
-    public class Main
-    {
-
-    }
-
 }

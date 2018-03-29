@@ -26,20 +26,26 @@ namespace WebApplication2.Controllers
                 using (UserContext db = new UserContext())
                 {
                     user = db.Users.FirstOrDefault(u => u.Email == model.Name && u.Password == model.Password);
-
                 }
                 if (user != null)
                 {
                     FormsAuthentication.SetAuthCookie(model.Name, true);
+                    if (model.Name == "Admin")
+                    {
+                        return RedirectToAction("Admin", "Account");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Main", "Main");
+                    }
                    
-                    return RedirectToAction("Main", "Main");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Incorrect login or password");
                 }
             }
-            
+
             return View(model);
         }
 
@@ -56,24 +62,26 @@ namespace WebApplication2.Controllers
             if (ModelState.IsValid)//перевіряємо модель на коректність
             {
                 User user = null;
-                using(UserContext db = new UserContext())//звертаємось до контексту даних
+                using (UserContext db = new UserContext())//звертаємось до контексту даних
                 {
                     user = db.Users.FirstOrDefault(u => u.Email == model.Name);//шукаємо користувача по логіну
                 }
-                if(user == null)//якщо не знайшли користувача тоді створюєм нового
+                if (user == null)//якщо не знайшли користувача тоді створюєм нового
                 {
-                    using(UserContext db = new UserContext())
+                    using (UserContext db = new UserContext())
                     {   //           ств обєкт Юзер по даних які передані через RegisterModel model
                         db.Users.Add(new User { Email = model.Name, Password = model.Password, Age = model.Age });
                         db.SaveChanges();
                         user = db.Users.Where(u => u.Email == model.Name && u.Password == model.Password).FirstOrDefault();
                         //
                     }
-                    if(user != null)
+                    if (user != null)
                     {
-                        
+
                         FormsAuthentication.SetAuthCookie(model.Name, true);// 1 параметр логін користувача , 2 чи будуть зберігати на довгий час регістраційні кукі
+
                         return RedirectToAction("Main", "Main");
+
                     }
                 }
                 else
@@ -88,6 +96,10 @@ namespace WebApplication2.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Main", "Main");
+        }
+        public ActionResult Admin()
+        {
+            return View();
         }
     }
 }
