@@ -38,8 +38,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
- 
-                        <input name="someid" type="number" id="Age" class="form-control" placeholder="Age" onkeypress="return isNumberKey(event)" min="1" max="110" required />
+                        <input name="Age" type="number" id="Age" class="form-control" placeholder="Age" onkeypress="return isNumberKey(event)" min="1" max="110" required />
                         <script>
                             document.getElementById('Age').onkeypress = function (e) {
                                 return !(/[А-Яа-яA-Za-z]/.test(String.fromCharCode(e.charCode)));

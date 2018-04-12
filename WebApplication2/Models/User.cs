@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace WebApplication2.Models
 {
@@ -11,5 +12,6 @@ namespace WebApplication2.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public int Age { get; set; }
+      
     }
 }

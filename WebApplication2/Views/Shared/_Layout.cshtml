@@ -13,6 +13,8 @@
     <title>@ViewBag.Title – ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/navbar.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -32,10 +34,13 @@
                     <li>@Html.ActionLink("Registration", "Register", "Account")</li>
                     <li>@Html.ActionLink("Sign in", "Login", "Account")</li>
                     <li>@Html.ActionLink("Exit", "SignOut", "Account")</li>
+                    <li>@Html.ActionLink("Admin","Admin","Admin")</li>
+                    <li><a style="color:aqua; padding-left:200px">@ViewBag.UserLogin</a></li>
                 </ul>
             </div>
         </div>
     </div>
+
     <div class="data">
         <div class="container body-content">
             @RenderBody()

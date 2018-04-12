@@ -10,6 +10,8 @@ namespace WebApplication2.Controllers
 {
     public class AccountController : Controller
     {
+        ListContext db = new ListContext();
+ 
         public ActionResult Login()
         {
             return View();
@@ -32,13 +34,13 @@ namespace WebApplication2.Controllers
                     FormsAuthentication.SetAuthCookie(model.Name, true);
                     if (model.Name == "Admin")
                     {
-                        return RedirectToAction("Admin", "Account");
+                        return RedirectToAction("Admin", "Admin");
                     }
                     else
                     {
                         return RedirectToAction("Main", "Main");
                     }
-                   
+
                 }
                 else
                 {
@@ -48,7 +50,6 @@ namespace WebApplication2.Controllers
 
             return View(model);
         }
-
 
         // GET: Account
         public ActionResult Register()
@@ -97,9 +98,6 @@ namespace WebApplication2.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Main", "Main");
         }
-        public ActionResult Admin()
-        {
-            return View();
-        }
+ 
     }
 }

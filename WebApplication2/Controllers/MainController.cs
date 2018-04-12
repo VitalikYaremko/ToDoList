@@ -11,6 +11,8 @@ namespace WebApplication2.Controllers
  
         public ActionResult Main()
         {
+            var UserLogin = User.Identity.Name;
+            ViewBag.UserLogin = UserLogin;
             return View();
         }
     }

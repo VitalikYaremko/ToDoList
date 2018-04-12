@@ -12,5 +12,7 @@ namespace WebApplication2.Models
         public string NameList { get; set; }
         public string Description { get; set; }
         public string Date { get; set; }
+
     }
+
 }
