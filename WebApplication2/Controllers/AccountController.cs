@@ -14,6 +14,8 @@ namespace WebApplication2.Controllers
  
         public ActionResult Login()
         {
+            var UserLogin = User.Identity.Name;
+            ViewBag.UserLogin = UserLogin;
             return View();
         }
 
@@ -54,6 +56,8 @@ namespace WebApplication2.Controllers
         // GET: Account
         public ActionResult Register()
         {
+            var UserLogin = User.Identity.Name;
+            ViewBag.UserLogin = UserLogin;
             return View();
         }
         [HttpPost]

@@ -17,11 +17,15 @@ namespace WebApplication2.Controllers
         [Authorize]
         public ActionResult List()
         {
+            var UserLogin = User.Identity.Name;
+            ViewBag.UserLogin = UserLogin;
             return View();
         }
         [Authorize]
         public ActionResult ViewList()
         {
+            var UserLogin = User.Identity.Name;
+            ViewBag.UserLogin = UserLogin;
             var CurUser = User.Identity.Name;
             IEnumerable<List> lists = db.Lists;
             var filtered = lists.Where(p => p.Name == CurUser);
@@ -34,7 +38,7 @@ namespace WebApplication2.Controllers
         [Authorize]
         public ActionResult List(ListModel model)
         {
-
+            
             if (ModelState.IsValid)
             {
                 var CurUser = User.Identity.Name;
