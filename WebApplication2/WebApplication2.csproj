@@ -183,6 +183,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -192,7 +193,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastucture\AppIdentityDbContext.cs" />
+    <Compile Include="Infrastucture\AppRoleManager.cs" />
+    <Compile Include="Infrastucture\AppUserManager.cs" />
     <Compile Include="Models\AppRole.cs" />
+    <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\List.cs" />
     <Compile Include="Models\Models.cs" />
