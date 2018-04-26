@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "UpdateUser";
+}
+@model WebApplication2.Models.User
+
+<head>
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+
+</head>
+<div class="first">
+    <div class="jumbotron">
+        @using (Html.BeginForm("UpdateUser", "Admin", FormMethod.Post))
+        {
+            <fieldset>
+                @Html.HiddenFor(m => m.Id)
+                <p>
+                    @Html.LabelFor(m => m.Email, "Email")
+                    <br />
+                    @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                </p>
+                @Html.LabelFor(m => m.Password, "Password")
+                <br />
+                @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                <p>
+                    @Html.LabelFor(m => m.Age, "Age")
+                    <br />
+                    @Html.EditorFor(m => m.Age, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                </p>
+               
+                @Html.LabelFor(m => m.RoleId, "RoleId")
+                @Html.EditorFor(m => m.RoleId, new { htmlAttributes = new { @class = "form-control", @required = "required" ,@min="1",@max="2"} })
+                <br />
+
+                <p>
+                    <input type="submit" value="Edit" class="form-control" />
+                </p>
+            </fieldset>
+        }
+    </div>
+</div>

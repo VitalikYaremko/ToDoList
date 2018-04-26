@@ -38,7 +38,6 @@ namespace WebApplication2.Controllers
         [Authorize]
         public ActionResult List(ListModel model)
         {
-            
             if (ModelState.IsValid)
             {
                 var CurUser = User.Identity.Name;

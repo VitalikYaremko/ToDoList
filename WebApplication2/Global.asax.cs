@@ -15,7 +15,8 @@ namespace WebApplication2
         protected void Application_Start()
         {
             //Database.SetInitializer<ListContext>(new DropCreateDatabaseIfModelChanges<ListContext>());// видалити потім
-             
+
+           // Database.SetInitializer(new UserDbInitializer());
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

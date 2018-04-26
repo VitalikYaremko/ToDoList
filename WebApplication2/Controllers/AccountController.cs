@@ -75,7 +75,7 @@ namespace WebApplication2.Controllers
                 {
                     using (UserContext db = new UserContext())
                     {   //           ств обєкт Юзер по даних які передані через RegisterModel model
-                        db.Users.Add(new User { Email = model.Name, Password = model.Password, Age = model.Age });
+                        db.Users.Add(new User { Email = model.Name, Password = model.Password, Age = model.Age,RoleId=2 });
                         db.SaveChanges();
                         user = db.Users.Where(u => u.Email == model.Name && u.Password == model.Password).FirstOrDefault();
                         //

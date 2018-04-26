@@ -10,53 +10,53 @@
     <div class="jumbotron">
 
         @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
+            <div class="form-horizontal">
 
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-            <div class="form-group">
-                <div style="color:black">
-                    @Html.LabelFor(model => model.NameList, htmlAttributes: new { @class = "control-label col-md-2" })
-                </div>
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.NameList, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
-                    @Html.ValidationMessageFor(model => model.NameList, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div style="color:black">
-                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                </div>
-
-                <div class="col-md-10">
-
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
-                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-12">
+                <div class="form-group">
                     <div style="color:black">
-                        <label for="Date" class="control-label col-md-2">Date</label>
+                        @Html.LabelFor(model => model.NameList, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NameList, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                        @Html.ValidationMessageFor(model => model.NameList, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div style="color:black">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
                     </div>
 
-                    <input type="date" id="Date" name="Date" class="form-control col-md-2" required />
-                </div>
-            </div>
+                    <div class="col-md-10">
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-offset-2">
-                    <input type="submit" value="Add" class="btn btn-default" />
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div style="color:black">
+                            <label for="Date" class="control-label col-md-2">Date</label>
+                        </div>
+
+                        <input type="date" id="Date" name="Date" class="form-control col-md-2" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-offset-2">
+                        <input type="submit" value="Add" class="btn btn-default" />
+                    </div>
                 </div>
             </div>
-        </div>
-}
+        }
 
     </div>
 </div>
